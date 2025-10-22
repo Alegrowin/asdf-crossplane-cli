@@ -4,7 +4,9 @@ set -euo pipefail
 
 RELEASES="https://releases.crossplane.io"
 TOOL_NAME="crossplane-cli"
-EXECUTABLE_NAME="kubectl-crossplane"
+# Allow users to override the executable name via environment variable
+# Default is 'crossplane', but can be customized for backward compatibility
+EXECUTABLE_NAME="${ASDF_CROSSPLANE_EXECUTABLE_NAME:-crossplane}"
 
 fail() {
   echo -e "asdf-$TOOL_NAME: $*"
